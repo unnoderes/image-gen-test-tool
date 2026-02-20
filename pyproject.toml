@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=65.5"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "image-gen-test-tool"
+version = "0.1.0"
+description = "Minimal CLI for testing image generation APIs (Alibaba and Google)."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "requests>=2.32.0",
+  "python-dotenv>=1.0.1",
+  "pydantic>=2.9.2,<3.0.0",
+  "Pillow>=10.4.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.3.3",
+  "requests-mock>=1.12.1",
+  "ruff>=0.6.9",
+  "build>=1.2.2",
+]
+tui = [
+  "textual>=0.70.0",
+]
+release = [
+  "build>=1.2.2",
+]
+
+[project.scripts]
+image-gen-test = "cli:main"
+igt = "cli:main"
+igt-tui = "ui.tui.main:run"
+
+[tool.setuptools]
+py-modules = ["cli"]
+packages = ["adapters", "core", "core.services", "ui", "ui.tui"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B"]
+ignore = ["B008"]

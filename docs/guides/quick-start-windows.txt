@@ -1,0 +1,97 @@
+• 极简使用指南（Windows）
+
+  1. 进入项目目录
+     cd C:\Users\serow\Desktop\image-gen-test-tool
+  2. 安装
+     pip install -e .
+  3. 配置环境变量
+     复制模板：copy .env.example .env
+     至少填写：
+
+  - ALIBABA_API_KEY=你的key
+  - ALIBABA_REGION=cn（你当前 key 适用）
+  - GOOGLE_API_KEY=你的key（要测 Google 时再填）
+
+  4. 查看命令
+     image-gen-test --help
+  5. 跑一次文生图（Alibaba）
+
+  image-gen-test single ^
+    --provider alibaba ^
+    --model qwen-image ^
+    --task-type text_to_image ^
+    --prompt "A cinematic mountain sunrise, ultra detailed" ^
+    --size 1024x1024 ^
+    --n 1
+
+  6. 对比两家（可选）
+
+  image-gen-test compare ^
+    --prompt "A red sports car drifting on wet road" ^
+    --task-type text_to_image ^
+    --model-alibaba qwen-image ^
+    --model-google gemini-2.5-flash-image
+
+  7. 查看输出
+     结果在 runs/ 下，每次会生成：
+
+  - request.json
+  - response.json
+  - saved_images.json
+  - images/
+
+  8. 常用辅助
+
+  - 版本：image-gen-test --version
+  - 安静模式：image-gen-test --quiet ...
+  - 调试模式：image-gen-test --verbose ...
+
+
+  image-gen-test single --provider alibaba --model qwen-image --task-type text_to_image --prompt "A cinematic mountain sunrise, ultra detailed" --size 1024x1024 --n 1
+
+---
+
+• 极简使用指南（当前版本）
+
+  1. 进入目录
+     cd C:\Users\serow\Desktop\image-gen-test-tool
+  2. 安装
+     pip install -e .
+  3. 配置 .env
+     先复制：copy .env.example .env
+     至少填一个 provider 的 key：
+
+  - Alibaba: ALIBABA_API_KEY + ALIBABA_REGION=cn|intl
+  - Google: GOOGLE_API_KEY
+  - GLM: GLM_API_KEY
+
+  4. 查看帮助
+     igt --help
+  5. 单次生成（single）
+
+  igt single --provider alibaba --model qwen-image --task-type text_to_image --prompt "A mountain at sunrise"
+
+  6. 双模型对比（compare，任意两家）
+
+  igt compare --prompt "A red sports car" --task-type text_to_image ^
+    --provider-a alibaba --model-a qwen-image ^
+    --provider-b glm --model-b cogview-4-250304
+
+  7. 批量生成（batch）
+     prompts.txt 一行一个 prompt，然后执行：
+
+  igt batch --provider glm --model cogview-4-250304 --task-type text_to_image --prompts-file prompts.txt
+
+  8. 结果位置
+     所有输出都在 runs/ 下，每次包含：
+
+  - request.json
+  - response.json
+  - saved_images.json
+  - images/
+
+  9. 常用参数
+
+  - --verbose：显示调试日志
+  - --quiet：只输出错误
+  - --version：查看版本
