@@ -1,0 +1,76 @@
+================================================================================
+  Image Generation Test Tool - Windows 打包快速指南
+================================================================================
+
+## 一键构建（推荐）
+
+  1. 构建可执行文件：
+     build_windows.bat
+
+  2. 测试构建结果：
+     test_build.bat
+
+  3. 打包发布版本：
+     package_release.bat
+
+
+## 手动构建
+
+  1. 安装依赖：
+     pip install -e .[tui,build]
+
+  2. 构建可执行文件：
+     pyinstaller build_exe.spec --clean --noconfirm
+
+  3. 查看结果：
+     dist/image-gen-test-tool/
+
+
+## 构建产物
+
+  dist/image-gen-test-tool/
+  ├── image-gen-test.exe      # CLI 工具
+  ├── igt-tui.exe             # TUI 界面
+  ├── _internal/              # 依赖库
+  ├── .env.example            # 配置模板
+  └── ...其他配置文件
+
+
+## 发布流程
+
+  1. 更新版本号（pyproject.toml）
+  2. 更新 CHANGELOG.md
+  3. 运行 build_windows.bat
+  4. 运行 test_build.bat 测试
+  5. 运行 package_release.bat 打包
+  6. 在 GitHub 创建 Release 并上传 ZIP
+
+
+## 文件说明
+
+  build_exe.spec              - PyInstaller 配置文件
+  build_windows.bat           - 自动构建脚本
+  test_build.bat              - 构建测试脚本
+  package_release.bat         - 发布打包脚本
+  docs/BUILD_WINDOWS.md       - 详细文档
+  docs/guides/windows-release-checklist.md - 发布检查清单
+
+
+## 常见问题
+
+  Q: 杀毒软件报毒？
+  A: PyInstaller 打包程序的常见问题，在 Release 中说明即可
+
+  Q: 体积太大？
+  A: 已排除常见不需要的包，使用 UPX 压缩
+
+  Q: 模块找不到？
+  A: 在 build_exe.spec 的 hiddenimports 中添加
+
+
+## 技术支持
+
+  详细文档：docs/BUILD_WINDOWS.md
+  检查清单：docs/guides/windows-release-checklist.md
+
+================================================================================

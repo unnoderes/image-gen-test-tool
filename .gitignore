@@ -39,6 +39,11 @@ build/
 *.egg-info/
 *.egg
 
+# Build scripts in root (if any)
+*_build.py
+*_tui.py
+run_*.py
+
 # IDE
 .vscode/
 .idea/
@@ -57,3 +62,8 @@ debug_*.py
 *.tmp
 *.bak
 *.cache
+
+# Build artifacts (keep docs/build-scripts)
+dist/
+build/
+*.spec

@@ -11,6 +11,7 @@ Current scope:
 - Shared service layer for CLI/TUI/GUI reuse: `core/services/`
 - Documentation: `docs/AGENTS.md`, `docs/CHANGELOG.md`, `docs/tui-gui-roadmap.md`
 - Quick start guide: `docs/guides/quick-start-windows.txt`
+- Build scripts: `docs/build-scripts/` (Windows executable packaging)
 
 ## 1. Setup
 

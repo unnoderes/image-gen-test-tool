@@ -28,6 +28,9 @@ tui = [
 release = [
   "build>=1.2.2",
 ]
+build = [
+  "pyinstaller>=6.0.0",
+]
 
 [project.scripts]
 image-gen-test = "cli:main"

@@ -1,0 +1,33 @@
+{
+  "alibaba": [
+    {
+      "id": "qwen-image-edit-plus-2025-12-15",
+      "tasks": [
+        "image_to_image"
+      ],
+      "status": "recommended",
+      "note": "User custom model",
+      "docs": "custom"
+    },
+    {
+      "id": "qwen-image-edit-max",
+      "tasks": [
+        "image_to_image"
+      ],
+      "status": "recommended",
+      "note": "User custom model",
+      "docs": "custom"
+    },
+    {
+      "id": "wan2.6-image",
+      "tasks": [
+        "image_to_image"
+      ],
+      "status": "custom",
+      "note": "User custom model",
+      "docs": "custom"
+    }
+  ],
+  "google": [],
+  "glm": []
+}

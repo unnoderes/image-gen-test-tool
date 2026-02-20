@@ -1,0 +1,66 @@
+Image Generation Test Tool v0.1.0 - Windows Release
+================================================
+
+QUICK START
+------------
+
+1. SETUP
+   Copy .env.example to .env:
+     copy .env.example .env
+
+2. CONFIGURE
+   Edit .env and add your API keys:
+   - ALIBABA_API_KEY=your_key_here
+   - ALIBABA_REGION=cn (or intl)
+   - GOOGLE_API_KEY=your_key_here (optional)
+   - GLM_API_KEY=your_key_here (optional)
+
+3. RUN
+
+   For CLI (Command Line Interface):
+     image-gen-test.exe --help
+     image-gen-test.exe single --provider alibaba --model qwen-image --task-type text_to_image --prompt "A mountain at sunrise"
+
+   For TUI (Text User Interface):
+     igt-tui.exe
+
+4. OUTPUT
+   Generated images are saved in:
+   - runs/ directory (by default)
+   - Each run creates a timestamped folder with:
+     * request.json
+     * response.json
+     * saved_images.json
+     * images/ folder
+
+DOCUMENTATION
+-------------
+
+- README.md: Full documentation
+- docs/: Additional guides and reference
+
+REQUIREMENTS
+------------
+
+- Windows 10 or higher
+- No Python installation required
+
+TROUBLESHOOTING
+---------------
+
+Q: Antivirus software flags the executable?
+A: This is common with PyInstaller-packed apps. The code is safe;
+   you can temporarily disable antivirus or add to exceptions.
+
+Q: TUI display issues?
+A: Use Windows Terminal for best experience. The legacy cmd.exe
+   may have display limitations.
+
+SUPPORT
+-------
+
+Project: https://github.com/yourusername/image-gen-test-tool
+Issues: https://github.com/yourusername/image-gen-test-tool/issues
+
+Version: 0.1.0
+Build Date: 2026-02-20
